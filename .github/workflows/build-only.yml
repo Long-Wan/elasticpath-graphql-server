@@ -1,8 +1,8 @@
 name: GraphQL server build
 on:
   push:
-    branches:
-      - '!main'
+    branches-ignore:
+      - 'main'
 jobs:
   build-server:
     needs: []
