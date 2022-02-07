@@ -223,3 +223,4 @@ Another alternative is to deploy in a kubernetes cluster by building a docker im
 - GraphQL playground and apis should now be available at `localhost:8000/`
 
 test
+test
