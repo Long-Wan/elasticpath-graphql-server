@@ -20,7 +20,7 @@ jobs:
     needs: [approve]
     runs-on: ubuntu-latest
     container: node:16-alpine
-    if: ${{ always() }}
+    if: ${{ !cancelled() }}
     env:
       ARTIFACT_NAME: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ github.sha }}-${{ github.run_id }}-${{ github.job }}
     steps:
@@ -45,7 +45,7 @@ jobs:
     needs: [build-server]
     runs-on: ubuntu-latest
     container: node:16-alpine
-    if: ${{ always() }}
+    if: ${{ !cancelled() }}
     env:
       ELASTICPATH_CLIENT_ID: ${{ secrets.ELASTICPATH_CLIENT_ID }}
       ELASTICPATH_API_HOST: ${{ secrets.ELASTICPATH_API_HOST }}
