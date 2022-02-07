@@ -8,7 +8,7 @@ jobs:
   approve:
     needs: []
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name != github.repository
+    if: github.event_name == 'pull_request_target' && github.repository_owner != 'long-wan-ep'
     environment:
       name: Pull Requests
     steps:
@@ -43,7 +43,7 @@ jobs:
     needs: [build-server]
     runs-on: ubuntu-latest
     container: node:16-alpine
-    if: ${{ !cancelled() && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository) }}
+    if: ${{ !cancelled() && github.repository_owner == 'long-wan-ep' }}
     env:
       ELASTICPATH_CLIENT_ID: ${{ secrets.ELASTICPATH_CLIENT_ID }}
       ELASTICPATH_API_HOST: ${{ secrets.ELASTICPATH_API_HOST }}
