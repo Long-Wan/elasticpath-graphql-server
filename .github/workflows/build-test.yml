@@ -27,6 +27,8 @@ jobs:
         with:
           ref: ${{ github.ref }}
       - name: Build server
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "$GITHUB_CONTEXT"
           yarn install
