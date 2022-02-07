@@ -1,8 +1,6 @@
 name: GraphQL server build and test
 on:
   push:
-    branches:
-      - 'main'
   pull_request_target:
     branches:
       - 'main'
@@ -45,7 +43,7 @@ jobs:
     needs: [build-server]
     runs-on: ubuntu-latest
     container: node:16-alpine
-    if: ${{ !cancelled() }}
+    if: ${{ !cancelled() && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository) }}
     env:
       ELASTICPATH_CLIENT_ID: ${{ secrets.ELASTICPATH_CLIENT_ID }}
       ELASTICPATH_API_HOST: ${{ secrets.ELASTICPATH_API_HOST }}
