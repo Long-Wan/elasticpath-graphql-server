@@ -1,0 +1,17 @@
+name: GraphQL server build
+on:
+  push:
+    branches:
+      - !'main'
+jobs:
+  build-server:
+    needs: []
+    runs-on: ubuntu-latest
+    container: node:16-alpine
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Build server
+        run: |
+          yarn install
+          yarn build
