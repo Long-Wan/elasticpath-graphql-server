@@ -43,7 +43,7 @@ jobs:
     needs: [build-server]
     runs-on: ubuntu-latest
     container: node:16-alpine
-    if: ${{ !cancelled() && github.repository_owner == 'long-wan-ep' }}
+    if: ${{ !cancelled() && github.repository_owner == 'elasticpath' }}
     env:
       ELASTICPATH_CLIENT_ID: ${{ secrets.ELASTICPATH_CLIENT_ID }}
       ELASTICPATH_API_HOST: ${{ secrets.ELASTICPATH_API_HOST }}
