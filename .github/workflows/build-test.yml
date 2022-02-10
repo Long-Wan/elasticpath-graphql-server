@@ -25,7 +25,7 @@ jobs:
         uses: fkirc/skip-duplicate-actions@v3.4.1
         with:
           skip_after_successful_duplicate: 'true'
-          concurrent_skipping: 'same_content'
+          concurrent_skipping: 'same_content_newer'
   build-server:
     needs: [pre_job]
     runs-on: ubuntu-latest
