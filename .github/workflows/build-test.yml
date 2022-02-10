@@ -17,6 +17,7 @@ jobs:
   pre_job:
     needs: [approve]
     runs-on: ubuntu-latest
+    if: ${{ !cancelled() }}
     outputs:
       should_skip: ${{ steps.skip_check.outputs.should_skip }}
     steps:
