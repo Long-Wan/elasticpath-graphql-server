@@ -221,4 +221,4 @@ Another alternative is to deploy in a kubernetes cluster by building a docker im
 - Build the docker image: `docker build --tag epcc-graphql --file Dockerfile .`
 - Run the docke image with necessary configurations: `docker run --detach --name epcc-graphql -p 8000:4000 --env ELASTICPATH_API_HOST=api.moltin.com epcc-graphql`
 - GraphQL playground and apis should now be available at `localhost:8000/`
-test
+testtest
